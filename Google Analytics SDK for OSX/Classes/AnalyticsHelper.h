@@ -12,6 +12,6 @@
 @property NSString* domainName;
 @property NSString* analyticsAccountCode;
 
--(BOOL) fireEvent: (NSString*)eventAction eventValue:(NSNumber*)eventValue;
+- (BOOL)fireEvent:(NSString*)eventAction eventCategory:(NSString *)eventCategory eventValue:(NSNumber *)eventValue;
 
 @end

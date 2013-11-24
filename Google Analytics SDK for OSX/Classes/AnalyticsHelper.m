@@ -32,11 +32,13 @@ static NSOperationQueue* operationQueue;
 }
 
 
--(BOOL) fireEvent: (NSString*)eventAction eventValue:(NSNumber*)eventValue
+- (BOOL)fireEvent:(NSString*)eventAction eventCategory:(NSString *)eventCategory eventValue:(NSNumber *)eventValue
 {
     
     NSDictionary* infoDict = [[NSBundle mainBundle] infoDictionary];
-    NSString* eventCategory = [NSString stringWithFormat:@"Mac %@", infoDict[@"CFBundleShortVersionString"]];
+    if (!eventCategory) {
+        eventCategory = [NSString stringWithFormat:@"Mac %@", infoDict[@"CFBundleShortVersionString"]];
+    }
     
     NSString* eventLabel = @"empty";
     NSUserDefaults* standardUserDefaults = [NSUserDefaults standardUserDefaults];
